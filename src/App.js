@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import "../src/styles/App.scss";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Home from "./routes/Home";
+import ProductsPage from "./routes/ProductsPage";
+import { DataProvider } from "./DataContext";
+import { useState, useEffect } from "react";
+import Cart from "./routes/Cart";
 
-function App() {
+const App = () => {
+  const [cart, setCart] = useState({});
+
+  useEffect(() => {
+    const cart = window.localStorage.getItem("cart");
+    setCart(JSON.parse(cart));
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+        <DataProvider>
+          <Navbar />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/products" component={ProductsPage} />
+            <Route exact path="/cart" component={Cart} />
+          </Switch>
+          {/* <Footer /> */}
+        </DataProvider>
+      </Router>
+    </>
   );
-}
+};
 
 export default App;
