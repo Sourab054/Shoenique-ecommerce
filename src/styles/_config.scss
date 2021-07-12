@@ -4,19 +4,6 @@ $dark-color: #232323;
 $light-color: #f4f4f4;
 $max-width: 1320px;
 
-@function set-text-color($color) {
-  @if (lightness($color) > 60) {
-    @return #232323;
-  } @else {
-    @return #fff;
-  }
-}
-
-@mixin set-bg-color($color) {
-  background-color: $color;
-  color: set-text-color($color);
-}
-
 $spaceamounts: (1, 2, 3, 4, 5);
 
 @each $space in $spaceamounts {

@@ -14,11 +14,11 @@ const Categories = ({ products, filterCategory }) => {
   }, [products]);
 
   return (
-    <div className="category">
+    <div className="flex pt-10 items-center justify-center">
       {categories.map((category, index) => {
         return (
           <button
-            className="category-btn"
+            className="capitalize px-3 py-1 rounded-lg border bg-secondary text-primary mb-4 ml-2 hover:border-secondary transition-all duration-300 hover:bg-transparent hover:text-secondary "
             key={index}
             onClick={() => filterCategory(category)}
           >

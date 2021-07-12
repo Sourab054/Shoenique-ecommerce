@@ -22,19 +22,24 @@ export const DataProvider = ({ children }) => {
     axios
       .request(options)
       .then(function (response) {
-        // console.log(response.data.results);
-        setProducts(response.data.results);
+        let data = response.data.results;
+        data.map((item) => {
+          item.qty = 1;
+        });
+        console.log(data);
+        setProducts(data);
         setIsLoading(false);
       })
       .catch(function (error) {
         console.error(error);
       });
-    let items = [...products];
-    items.map((product) => {
-      product.qty = 1;
-      console.log(product);
-    });
-    setProducts(items);
+    // let items = [...products];
+    // items.map((product) => {
+    //   product.qty = 1;
+    //   // console.log(product);
+    // });
+    // // console.log(items);
+    // setProducts(items);
   }, []);
 
   // console.log(products);

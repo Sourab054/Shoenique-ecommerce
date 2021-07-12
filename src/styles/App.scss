@@ -38,6 +38,7 @@ body {
 //Navbar
 nav {
   background-color: $primary-color;
+  height: 10vh;
 }
 .nav {
   display: flex;
@@ -82,6 +83,7 @@ nav {
 //Landing page
 .landing {
   background: $primary-color;
+  height: 90vh;
   display: flex;
   font-size: 1.5rem;
   justify-content: space-between;
@@ -313,18 +315,34 @@ nav {
 // @media only screen and (min-width: 320px) {
 //   .container {
 //     padding: 0 1.5rem;
-//     overflow: hidden;
+//     height: 100%;
 //   }
-//   .nav {
-//     &-links {
-//       display: none;
-//     }
-//     &-list-cart {
-//       display: flex;
-//       padding: 0.5rem 1rem;
-//       margin-top: -0.5rem;
+//   nav {
+//     width: 100vw;
+//     .nav {
+//       flex-direction: column;
+//       .logo {
+//         display: flex;
+//         justify-content: space-between;
+//         align-items: center;
+//       }
+//       &-links {
+//         margin-left: -3rem;
+//         margin-right: auto;
+//       }
+//       &-list {
+//         flex-direction: column;
+
+//         &-cart {
+//           display: flex;
+
+//           padding: 0.5rem 1rem;
+//           margin-top: -0.5rem;
+//         }
+//       }
 //     }
 //   }
+
 //   .landing {
 //     flex-direction: column;
 //     width: 100%;
@@ -342,6 +360,21 @@ nav {
 //       p {
 //         margin-top: -0.5rem;
 //         font-size: 1rem;
+//       }
+//     }
+//   }
+// }
+
+// @media only screen and (min-width: 768px) {
+//   nav {
+//     .nav {
+//       flex-direction: row;
+//       justify-content: space-between;
+//       &-sidebar {
+//         display: none;
+//       }
+//       &-list {
+//         flex-direction: row;
 //       }
 //     }
 //   }

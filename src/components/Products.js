@@ -4,6 +4,7 @@ import axios from "axios";
 import Product from "./Product";
 import Categories from "./Categories";
 import { DataContext } from "../DataContext";
+import { ImSpinner9 } from "react-icons/im";
 
 const Products = () => {
   const value = useContext(DataContext);
@@ -35,17 +36,17 @@ const Products = () => {
   return (
     <>
       {isLoading ? (
-        <div className="basic"> </div>
+        <div className="animate-spin w-10 h-10"></div>
       ) : (
-        <article className="products">
+        <section className="p-4 font-body lg:px-20">
           <Categories products={products} filterCategory={filterCategory} />
 
-          <div className="grid">
+          <div className="pb-5 sm:grid sm:grid-cols-2 sm:gap-5 ipad:grid-cols-3">
             {products.map((product) => (
               <Product product={product} key={product.id} />
             ))}
           </div>
-        </article>
+        </section>
       )}
     </>
   );
