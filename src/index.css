@@ -5,7 +5,7 @@
 @layer utilities {
   .line::after {
     content: "" !important;
-    background-color: #ffffff !important;
+    background-color: #40e0d0 !important;
     width: 1.4rem !important;
     height: 0.2rem !important;
     display: block !important;

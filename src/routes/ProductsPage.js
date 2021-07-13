@@ -6,9 +6,6 @@ const ProductsPage = () => {
   return (
     <>
       <Products />
-      <footer className="bg-secondary text-primary ">
-        <Footer />
-      </footer>
     </>
   );
 };

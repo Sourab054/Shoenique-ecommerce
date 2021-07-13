@@ -11,7 +11,7 @@ const Categories = ({ products, filterCategory }) => {
   useEffect(() => {
     console.log(allCategories);
     setCategories(allCategories);
-  }, [products]);
+  }, [products.gender]);
 
   return (
     <div className="flex pt-10 items-center justify-center">

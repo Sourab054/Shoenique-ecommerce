@@ -26,20 +26,13 @@ export const DataProvider = ({ children }) => {
         data.map((item) => {
           item.qty = 1;
         });
-        console.log(data);
+        // console.log(data);
         setProducts(data);
         setIsLoading(false);
       })
       .catch(function (error) {
         console.error(error);
       });
-    // let items = [...products];
-    // items.map((product) => {
-    //   product.qty = 1;
-    //   // console.log(product);
-    // });
-    // // console.log(items);
-    // setProducts(items);
   }, []);
 
   // console.log(products);
@@ -54,6 +47,11 @@ export const DataProvider = ({ children }) => {
       });
       setCart([...cart, ...data]);
     } else {
+      const data = cart.find((item) => {
+        return item.id === id;
+      });
+      data.qty += 1;
+      // setCart([...data, ...cart]);
       alert("Product has already been added to the cart");
     }
   };

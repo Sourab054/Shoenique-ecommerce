@@ -55,16 +55,16 @@ const Navbar = () => {
       {links && (
         <div className="md:hidden">
           <ul className="pt-2">
-            <li className="bg-secondary text-center text-primary p-2 rounded-sm border-b border-primary ">
+            <li className="bg-tertiary text-center text-primary p-2 rounded-sm border-b border-primary ">
               <Link to="/">Home</Link>
             </li>
-            <li className="bg-secondary text-center text-primary p-2 rounded-sm  border-b border-primary">
+            <li className="bg-tertiary text-center text-primary p-2 rounded-sm  border-b border-primary">
               <Link to="/products">Shop</Link>
             </li>
-            <li className="bg-secondary text-center text-primary p-2 rounded-sm  border-b border-primary">
+            <li className="bg-tertiary text-center text-primary p-2 rounded-sm  border-b border-primary">
               <Link to="/about">About</Link>
             </li>
-            <li className="bg-secondary text-center text-primary p-2 rounded-sm">
+            <li className="bg-tertiary text-center text-primary p-2 rounded-sm border-b border-primary">
               <Link to="#">Contact</Link>
             </li>
           </ul>

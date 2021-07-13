@@ -34,7 +34,7 @@ const Product = ({ product }) => {
               <p className="text-sm font-semibold">${product.retailPrice} </p>
             </div>
             <div className="flex justify-around p-4 font-body ipad:flex-col ">
-              <button className="border text-white bg-secondary rounded-md px-3 py-1 ipad:mb-2">
+              <button className="border border-font text-black bg-primary rounded-md px-3 py-1 ipad:mb-2">
                 <div className="flex items-center ipad:justify-center">
                   <AiFillEye className="mr-1" />
                   Details

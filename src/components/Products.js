@@ -1,17 +1,15 @@
 import React from "react";
 import { useState, useEffect, useContext } from "react";
-import axios from "axios";
 import Product from "./Product";
 import Categories from "./Categories";
 import { DataContext } from "../DataContext";
-import { ImSpinner9 } from "react-icons/im";
 
 const Products = () => {
   const value = useContext(DataContext);
   const [products, setProducts] = value.products;
   const [isLoading, setIsLoading] = value.loading;
 
-  console.log(products);
+  // console.log(products);
 
   const filterCategory = (category) => {
     if (category === "all") {
@@ -20,10 +18,8 @@ const Products = () => {
       return;
     }
     const newItems = products.filter((product) => product.gender === category);
+    console.log(newItems);
     setProducts(newItems);
-    // console.log(products);
-    setProducts(newItems);
-    // console.log(newItems);
   };
 
   // const allCategories = [

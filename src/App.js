@@ -10,17 +10,6 @@ import Cart from "./routes/Cart";
 import About from "./routes/About";
 
 const App = () => {
-  const [cart, setCart] = useState({});
-
-  useEffect(() => {
-    const cart = window.localStorage.getItem("cart");
-    setCart(JSON.parse(cart));
-  }, []);
-
-  useEffect(() => {
-    window.localStorage.setItem("cart", JSON.stringify(cart));
-  }, [cart]);
-
   return (
     <>
       <Router>
@@ -32,7 +21,7 @@ const App = () => {
             <Route exact path="/cart" component={Cart} />
             <Route exact path="/about" component={About} />
           </Switch>
-          {/* <Footer /> */}
+          <Footer />
         </DataProvider>
       </Router>
     </>

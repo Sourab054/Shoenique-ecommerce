@@ -8,7 +8,7 @@ const Cart = () => {
   const value = useContext(DataContext);
   const [cart, setCart] = value.cart;
   const [total, setTotal] = useState(0);
-  console.log(cart);
+  // console.log(cart);
 
   useEffect(() => {
     const getTotal = () => {
@@ -99,9 +99,6 @@ const Cart = () => {
           </Link>
         </div>
       </div>
-      <footer className="bg-secondary fixed inset-x-0 bottom-0 text-primary ">
-        <Footer />
-      </footer>
     </>
   );
 };
