@@ -8,26 +8,31 @@ const Products = () => {
   const value = useContext(DataContext);
   const [products, setProducts] = value.products;
   const [isLoading, setIsLoading] = value.loading;
+  const [newProducts, setNewProducts] = useState([]);
+  const [cat, setCat] = useState("");
+  // newProducts.push(products);
 
-  // console.log(products);
+  // setNewProducts(products);
+  useEffect(() => {
+    setNewProducts(products);
+    console.log(newProducts);
+  }, [products]);
 
   const filterCategory = (category) => {
+    setCat(category);
+    setProducts(products);
     if (category === "all") {
       setProducts(products);
-      // console.log(products);
+      console.log(products);
       return;
+    } else {
+      const newItems = products.filter(
+        (product) => product.gender === category
+      );
+      console.log(newItems);
+      setNewProducts(newItems);
     }
-    const newItems = products.filter((product) => product.gender === category);
-    console.log(newItems);
-    setProducts(newItems);
   };
-
-  // const allCategories = [
-  //   "all",
-  //   ...new Set(products.map((item) => item.gender)),
-  // ];
-  // console.log(allCategories);
-  // setCategories(allCategories);
 
   return (
     <>
@@ -37,10 +42,15 @@ const Products = () => {
         <section className="p-4 font-body lg:px-20">
           <Categories products={products} filterCategory={filterCategory} />
 
-          <div className="pb-5 sm:grid sm:grid-cols-2 sm:gap-5 ipad:grid-cols-3">
-            {products.map((product) => (
-              <Product product={product} key={product.id} />
-            ))}
+          <div className="pb-5 sm:grid sm:grid-cols-2 sm:gap-5 ipad:grid-cols-4">
+            {cat === "all" &&
+              products?.map((product) => (
+                <Product product={product} key={product.id} />
+              ))}
+            {cat !== "all" &&
+              newProducts.map((product) => (
+                <Product product={product} key={product.id} />
+              ))}
           </div>
         </section>
       )}

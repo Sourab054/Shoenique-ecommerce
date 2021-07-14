@@ -4,7 +4,7 @@ import { FiRefreshCcw } from "react-icons/fi";
 
 const About = () => {
   return (
-    <div className="py-6 px-4 sm:px-8 md:pt-12  lg:max-w-7xl lg:mx-auto">
+    <div className="py-6 px-4 pt-14 sm:px-8 md:pt-14  lg:max-w-7xl lg:mx-auto">
       <div>
         <h1 className="text-3xl heading font-head pb-6 font-medium sm:text-4xl lg:text-5xl">
           Who are we?

@@ -10,11 +10,11 @@ const Categories = ({ products, filterCategory }) => {
 
   useEffect(() => {
     console.log(allCategories);
-    setCategories(allCategories);
-  }, [products.gender]);
+    // setCategories(allCategories);
+  }, [products]);
 
   return (
-    <div className="flex pt-10 items-center justify-center">
+    <div className="flex flex-wrap pt-16 items-center justify-center">
       {categories.map((category, index) => {
         return (
           <button

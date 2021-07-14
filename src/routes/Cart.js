@@ -37,7 +37,8 @@ const Cart = () => {
   const reduction = (id) => {
     cart.forEach((item) => {
       if (item.id === id) {
-        item.qty >= 1 ? (item.qty = 1) : (item.qty -= 1);
+        item.qty === 0 ? (item.qty = 0) : (item.qty -= 1);
+        // item.qty -= 1;
         // console.log(item);
       }
     });

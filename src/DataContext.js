@@ -11,7 +11,7 @@ export const DataProvider = ({ children }) => {
   const options = {
     method: "GET",
     url: "https://v1-sneakers.p.rapidapi.com/v1/sneakers",
-    params: { limit: "20" },
+    params: { limit: "40" },
     headers: {
       "x-rapidapi-key": "dbb5590bccmsh8bcc84e2aa2288cp1b507djsnad4785c628d5",
       "x-rapidapi-host": "v1-sneakers.p.rapidapi.com",

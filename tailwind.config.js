@@ -21,6 +21,7 @@ module.exports = {
         logo: ["Montez", "cursive"],
         body: ["Poppins", "sans-serif"],
       },
+      // backgroundColor: ["active"],
     },
   },
   variants: {

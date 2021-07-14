@@ -17,9 +17,9 @@ const Product = ({ product }) => {
         <div className="rounded-md shadow-lg border border-gray-200 mb-5">
           <Fade bottom>
             <img
-              src={product.media.imageUrl}
+              src={product.media.thumbUrl}
               alt=""
-              className="border-b border-gray-400 rounded-t-md object-cover"
+              className="border-b border-gray-400 rounded-t-md object-contain flex p-10 items-center"
             />
             <div className="flex justify-around p-3">
               <div>
