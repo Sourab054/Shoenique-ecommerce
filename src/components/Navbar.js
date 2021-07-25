@@ -62,7 +62,7 @@ const Navbar = () => {
         >
           <ul
             onClick={() => showSidebar(false)}
-            className="flex flex-col text-lg items-center w-full "
+            className="flex flex-col text-lg text-center items-center w-full "
           >
             <li className="ml-auto p-4 text-tertiary">
               <Link onClick={() => showSidebar(false)}>
