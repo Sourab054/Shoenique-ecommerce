@@ -4,8 +4,8 @@ import { FiMail } from "react-icons/fi";
 
 const Footer = () => {
   return (
-    <footer className="bg-secondary text-primary ">
-      <div className="px-4 pt-4 text-fontWhite sm:px-8 md:pt-8 lg:max-w-7xl lg:mx-auto">
+    <footer className="bg-secondary xl:px-28 sticky top-full text-primary ">
+      <div className="px-4 pt-4 text-fontWhite sm:px-8 md:pt-8 lg:mx-auto">
         <div className="grid pb-6 font-body capitalize sm:grid-cols-2 sm:gap-5 md:grid-cols-4">
           <div className="capitalize font-body">
             <h1 className="uppercase pt-4 pb-1 text-primary">Get to know us</h1>

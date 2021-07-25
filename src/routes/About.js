@@ -15,7 +15,7 @@ const About = () => {
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum vel sed rem
         obcaecati voluptatibus aliquam provident, magni blanditiis maiores est.
       </p>
-      <p className="text-sm pb-2 text-font font-medium leading-6 sm:text-base md:leading-none lg:text-lg">
+      <p className="text-sm pb-2 text-font font-medium leading-6 sm:text-base  lg:text-lg">
         {" "}
         We are present in 10 countries around the globe & are constantly
         expanding. Lorem ipsum dolor, sit amet consectetur adipisicing elit.

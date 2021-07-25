@@ -9,23 +9,28 @@ const Categories = ({ products, filterCategory }) => {
   const [categories, setCategories] = useState(allCategories);
 
   useEffect(() => {
-    console.log(allCategories);
-    // setCategories(allCategories);
+    // console.log(allCategories);
   }, [products]);
 
   return (
-    <div className="flex flex-wrap pt-16 items-center justify-center">
-      {categories.map((category, index) => {
-        return (
-          <button
-            className="capitalize px-3 py-1 rounded-lg border bg-secondary text-primary mb-4 ml-2 hover:border-secondary transition-all duration-300 hover:bg-transparent hover:text-secondary "
-            key={index}
-            onClick={() => filterCategory(category)}
-          >
-            {category}{" "}
-          </button>
-        );
-      })}
+    <div className=" hidden sm:flex sm:flex-wrap sm:pt-16 sm:items-center sm:justify-center sm:text-gray-500">
+      <div className="border border-gray-200 rounded-md p-1 shadow-sm">
+        <label htmlFor="categories">Categories : </label>
+        <select
+          name="categories"
+          className="capitalize outline-none"
+          onChange={(e) => filterCategory(e.target.value)}
+        >
+          {categories.map((category, index) => {
+            return (
+              <option key={index} value={category}>
+                {" "}
+                {category}
+              </option>
+            );
+          })}
+        </select>
+      </div>
     </div>
   );
 };

@@ -8,6 +8,7 @@ import { DataProvider } from "./DataContext";
 import { useState, useEffect } from "react";
 import Cart from "./routes/Cart";
 import About from "./routes/About";
+import SingleProduct from "./routes/SingleProduct";
 
 const App = () => {
   return (
@@ -18,9 +19,11 @@ const App = () => {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/products" component={ProductsPage} />
+            <Route exact path="/products/:id" component={SingleProduct} />
             <Route exact path="/cart" component={Cart} />
             <Route exact path="/about" component={About} />
           </Switch>
+
           <Footer />
         </DataProvider>
       </Router>

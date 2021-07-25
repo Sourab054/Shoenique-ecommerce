@@ -37,7 +37,7 @@ const Cart = () => {
   const reduction = (id) => {
     cart.forEach((item) => {
       if (item.id === id) {
-        item.qty === 0 ? (item.qty = 0) : (item.qty -= 1);
+        item.qty <= 1 ? (item.qty = 1) : (item.qty -= 1);
         // item.qty -= 1;
         // console.log(item);
       }
@@ -46,9 +46,9 @@ const Cart = () => {
   };
   return (
     <>
-      <div className="px-4 py-4 font-body sm:pt-8 lg:px-36">
-        <h1 className="font-head text-2xl font-semibold text-center pb-2 text-black">
-          Your Cart
+      <div className="px-4 py-4 font-body pt-20 lg:px-36">
+        <h1 className="font-head text-xl font-medium pl-4 pb-4 text-black">
+          My Cart ({cart.length})
         </h1>
         {cart.map((item) => (
           <div className="grid grid-cols-2 gap-x-3 p-2 border border-gray-200 mb-5 sm:grid-cols-3 sm:gap-x-5 lg:gap-x-2">
@@ -63,7 +63,7 @@ const Cart = () => {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem
                 ipsum dolor.
               </p>
-              <h3 className="pt-2 text-gray-700 font-semibold pl-2 md:text-lg">
+              <h3 className="pt-2 text-font font-semibold pl-2 md:text-lg">
                 ${item.retailPrice}
               </h3>
             </div>
@@ -92,7 +92,7 @@ const Cart = () => {
             <span className="text-black font-semibold">${total}</span>
           </h3>
           <Link
-            className="bg-tertiary grid place-content-center text-sm font-medium font-head text-white tracking-widest px-3 py-2 rounded-sm shadow-md transition-all duration-300 border hover:border-tertiary hover:text-tertiary hover:bg-transparent transform"
+            className="bg-tertiary grid place-content-center text-base font-medium font-head text-white tracking-widest px-3 py-2 rounded-sm shadow-md transition-all duration-300 border hover:border-tertiary hover:text-tertiary hover:bg-transparent transform"
             to="/payment"
           >
             {" "}

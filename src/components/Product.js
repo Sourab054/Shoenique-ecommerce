@@ -3,6 +3,7 @@ import Fade from "react-reveal/Fade";
 import { DataContext } from "../DataContext";
 import { AiFillEye } from "react-icons/ai";
 import { FiShoppingCart } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 const Product = ({ product }) => {
   const [isAdding, setIsAdding] = useState(false);
@@ -34,12 +35,15 @@ const Product = ({ product }) => {
               <p className="text-sm font-semibold">${product.retailPrice} </p>
             </div>
             <div className="flex justify-around p-4 font-body ipad:flex-col ">
-              <button className="border border-font text-black bg-primary rounded-md px-3 py-1 ipad:mb-2">
+              <Link
+                to={`/products/${product.id}`}
+                className="border border-font text-black bg-primary rounded-md px-3 py-1 ipad:mb-2"
+              >
                 <div className="flex items-center ipad:justify-center">
                   <AiFillEye className="mr-1" />
                   Details
                 </div>
-              </button>
+              </Link>
               <button
                 className={`${
                   isAdding

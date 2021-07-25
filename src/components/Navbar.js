@@ -10,8 +10,10 @@ import {
   FaShoppingBag,
   FaInfoCircle,
   FaMailBulk,
+  FaRegUser,
 } from "react-icons/fa";
 import { MdClose } from "react-icons/md";
+import { FiShoppingCart } from "react-icons/fi";
 
 const Navbar = () => {
   const value = useContext(DataContext);
@@ -28,16 +30,19 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="flex items-center">
-          <button className="flex bg-gray-100 justify-center items-center sm:text-sm sm:font-semibold sm:font-head sm:text-black sm:tracking-wider sm:px-3 sm:py-1.5 sm:rounded-sm sm:shadow-sm transition-all duration-300 sm:border transform mr-4">
+          <button className="sm:flex sm:bg-gray-50 sm:justify-center sm:items-center sm:text-sm sm:font-semibold sm:font-head sm:text-black sm:tracking-wider sm:px-3 sm:py-1.5 sm:rounded-sm sm:shadow-sm transition-all duration-300 sm:border sm:border-gray-50 transform mr-4">
             <Link to="/cart">
-              <div className="flex">
-                <FaShoppingCart size="16" className="mr-1" />
+              <div className="flex relative">
+                <FiShoppingCart size="18" className="mr-1 bg-white" />
                 <h1 className="hidden sm:block">Cart</h1>
+                <div className="bg-tertiary text-white rounded-full py-0.5 px-1.5 text-xs absolute bottom-2 -right-2 sm:bottom-4 sm:-right-5">
+                  <span className="font-normal">{cart.length}</span>
+                </div>
               </div>
             </Link>
           </button>
-          <button className="sm:bg-secondary sm:text-sm sm:font-medium sm:font-head sm:text-primary sm:tracking-wider sm:px-3 sm:py-1.5 sm:rounded-sm sm:shadow-sm transition-all duration-300 sm:border transform ">
-            <FaUserAlt size="16" className="sm:hidden" />
+          <button className="sm:bg-tertiary sm:text-sm sm:font-medium sm:font-head sm:text-primary sm:tracking-wider sm:px-3 sm:py-1.5 sm:rounded-sm sm:shadow-sm transition-all duration-300 sm:border transform ">
+            <FaRegUser size="16" className="sm:hidden" />
             <h1 className="hidden sm:block">Login</h1>
           </button>
         </div>
@@ -55,7 +60,10 @@ const Navbar = () => {
               : "w-full sm:w-1/2 md:w-1/3 z-10 h-full bg-primary text-font flex justify-center fixed top-0 left-0 transition-all duration-500"
           }`}
         >
-          <ul className="flex flex-col text-lg items-center w-full">
+          <ul
+            onClick={() => showSidebar(false)}
+            className="flex flex-col text-lg items-center w-full "
+          >
             <li className="ml-auto p-4 text-tertiary">
               <Link onClick={() => showSidebar(false)}>
                 <MdClose size="30" />

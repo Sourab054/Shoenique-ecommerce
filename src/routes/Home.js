@@ -31,11 +31,11 @@ const Home = () => {
               adipisicing elit. Laboriosam, error.
             </p>
 
-            <button className="bg-primary text-sm font-semibold font-head text-secondary tracking-wider px-3 py-2 rounded-sm shadow-md transition-all duration-300 border hover:border-primary hover:text-primary hover:bg-transparent transform ">
-              <Link to="/products">BROWSE PRODUCTS</Link>
+            <button className="bg-primary uppercase text-sm font-semibold font-head text-secondary tracking-wider px-3 py-2 rounded-sm shadow-md transition-all duration-300 border hover:border-primary hover:text-primary hover:bg-transparent transform ">
+              <Link to="/products">Explore Now</Link>
             </button>
           </motion.div>
-          <div className="bg-gray-100 grid place-content-center rounded-md shadow-md md:bg-transparent md:shadow-none">
+          <div className="bg-gray-50 grid place-content-center rounded-md shadow-md md:bg-transparent md:shadow-none">
             <motion.img
               // variants={imageVariant}
               initial={{ y: "-100%" }}

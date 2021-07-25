@@ -27,4 +27,7 @@
   .heading-white::after {
     background-color: #ffffff !important;
   }
+  input::placeholder {
+    color: rgba(0, 0, 0, 0.26);
+  }
 }

@@ -13,7 +13,7 @@ export const DataProvider = ({ children }) => {
     url: "https://v1-sneakers.p.rapidapi.com/v1/sneakers",
     params: { limit: "40" },
     headers: {
-      "x-rapidapi-key": "dbb5590bccmsh8bcc84e2aa2288cp1b507djsnad4785c628d5",
+      "x-rapidapi-key": "0765955ed0msha0db50a6e394579p1e9b9fjsnd335255f018e",
       "x-rapidapi-host": "v1-sneakers.p.rapidapi.com",
     },
   };
@@ -52,7 +52,7 @@ export const DataProvider = ({ children }) => {
       });
       data.qty += 1;
       // setCart([...data, ...cart]);
-      alert("Product has already been added to the cart");
+      // alert("Product has already been added to the cart");
     }
   };
 
