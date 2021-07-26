@@ -30,4 +30,7 @@
   input::placeholder {
     color: rgba(0, 0, 0, 0.26);
   }
+  .behavior {
+    scroll-behavior: smooth;
+  }
 }
