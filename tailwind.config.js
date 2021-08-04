@@ -9,11 +9,12 @@ module.exports = {
         ipad: "850px",
       },
       colors: {
-        primary: "#ffffff",
-        secondary: "#130d14",
-        tertiary: "#40E0D0",
+        primary: "#FAFAFF",
+        secondary: "#000100",
+        accent: "#11B6E4",
+        accentDark: "#10A7D1",
         font: "#000000b3",
-        fontWhite: "#ffffffb3",
+        fontWhite: "#EBEBFF",
         danger: "#CE1212",
       },
       fontFamily: {

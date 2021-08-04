@@ -5,14 +5,14 @@
 @layer utilities {
   .line::after {
     content: "" !important;
-    background-color: #40e0d0 !important;
+    background-color: #11b6e4 !important;
     width: 1.4rem !important;
     height: 0.2rem !important;
     display: block !important;
     margin-top: 0.3rem !important;
     margin-left: 0.5rem !important;
   }
-  .heading::after,
+
   .heading-white::after {
     content: "" !important;
     width: 2rem !important;
@@ -21,13 +21,12 @@
     margin-top: 0.5rem !important;
     margin-left: 0.5rem !important;
   }
-  .heading::after {
-    background-color: #40e0d0 !important;
-  }
+
   .heading-white::after {
-    background-color: #ffffff !important;
+    background-color: #11b6e4 !important;
   }
-  input::placeholder {
+  input::placeholder,
+  textarea::placeholder {
     color: rgba(0, 0, 0, 0.26);
   }
   .behavior {

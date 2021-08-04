@@ -37,7 +37,7 @@ const Product = ({ product }) => {
             <div className="flex justify-around p-4 font-body ipad:flex-col ">
               <Link
                 to={`/products/${product.id}`}
-                className="border border-font text-black bg-primary rounded-md px-3 py-1 ipad:mb-2"
+                className="border border-font text-black bg-primary rounded-md px-5 py-1.5 sm:px-3 sm:py-1 ipad:mb-2"
               >
                 <div className="flex items-center ipad:justify-center">
                   <AiFillEye className="mr-1" />
@@ -48,7 +48,7 @@ const Product = ({ product }) => {
                 className={`${
                   isAdding
                     ? "bg-secondary border border-secondary text-white rounded-md px-3 py-1 capitalize"
-                    : "bg-tertiary border border-tertiary text-white rounded-md px-3 py-1 capitalize "
+                    : "bg-secondary border border-tertiary text-white rounded-md px-3 py-1.5 capitalize "
                 }`}
                 onClick={() => addToCart(product.id)}
               >

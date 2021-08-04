@@ -51,7 +51,7 @@ const Cart = () => {
           My Cart ({cart.length})
         </h1>
         {cart.map((item) => (
-          <div className="grid grid-cols-2 gap-x-3 p-2 border border-gray-200 mb-5 sm:grid-cols-3 sm:gap-x-5 lg:gap-x-2">
+          <div className="grid grid-cols-2 gap-x-3 p-2 border bg-white border-gray-200 mb-5 sm:grid-cols-3 sm:gap-x-5 lg:gap-x-2">
             <div className="sm:row-span-2">
               <img src={item.media.thumbUrl} alt="" />
             </div>
@@ -69,7 +69,7 @@ const Cart = () => {
             </div>
             <div className="col-start-2 col-end-4 sm:col-start-3 sm:col-end-4 sm:justify-self-center">
               <button
-                className="bg-secondary text-sm font-medium font-head text-white tracking-widest px-3 py-2 rounded-sm shadow-md transition-all duration-300 border hover:border-secondary hover:text-secondary hover:bg-transparent transform"
+                className="bg-secondary text-sm font-medium font-head text-white tracking-widest px-3 py-2 rounded-sm shadow-sm transition-all duration-300 border hover:border-secondary hover:text-secondary hover:bg-transparent transform"
                 onClick={() => remove(item.id)}
               >
                 Remove item
@@ -92,7 +92,7 @@ const Cart = () => {
             <span className="text-black font-semibold">${total}</span>
           </h3>
           <Link
-            className="bg-tertiary grid place-content-center text-base font-medium font-head text-white tracking-widest px-3 py-2 rounded-sm shadow-md transition-all duration-300 border hover:border-tertiary hover:text-tertiary hover:bg-transparent transform"
+            className="bg-accent grid place-content-center text-base font-medium font-head text-white tracking-widest px-3 py-2 rounded-sm shadow-sm transition-all duration-300 border hover:bg-accentDark transform"
             to="/payment"
           >
             {" "}

@@ -48,19 +48,23 @@ const SingleProduct = () => {
       {product.map((item) => (
         <div key={item.id}>
           <div className="md:pl-4">
-            <button className="bg-gray-50 text-black px-3 py-1 rounded-sm shadow-sm">
+            <button className="bg-gray-100 text-black px-3 py-1 rounded-md shadow-sm">
               <div
                 className="flex justify-between items-center"
                 onClick={() => history.goBack()}
               >
-                <IoIosArrowBack />
+                <IoIosArrowBack className="mr-1" />
                 Back
               </div>
             </button>
           </div>
           <div className="sm:grid sm:grid-cols-2 sm:gap-5">
             <div className="sm:py-8">
-              <img src={item.media.imageUrl} alt="" className="p-4" />
+              <img
+                src={item.media.imageUrl}
+                alt=""
+                className="p-4 rounded-md"
+              />
             </div>
             <div className="place-self-center">
               <p className="capitalize text-font font-medium">
@@ -98,7 +102,7 @@ const SingleProduct = () => {
               <div className="pt-6 lg:pt-16">
                 <button
                   onClick={() => addToCart(item.id)}
-                  className="bg-tertiary w-full text-white rounded-sm px-3 py-2 capitalize ipad:text-lg"
+                  className="bg-accent w-full text-white rounded-sm px-3 py-2 capitalize ipad:text-lg"
                 >
                   Add to cart
                 </button>
