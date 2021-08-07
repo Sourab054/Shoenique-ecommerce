@@ -1,9 +1,11 @@
 import React, { useState, createContext, useEffect } from "react";
 import axios from "axios";
+import { auth } from "./firebase";
 
 export const DataContext = createContext();
 
 export const DataProvider = ({ children }) => {
+  const [currentUser, setCurrentUser] = useState();
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [cart, setCart] = useState([]);
@@ -17,6 +19,41 @@ export const DataProvider = ({ children }) => {
       "x-rapidapi-host": "v1-sneakers.p.rapidapi.com",
     },
   };
+
+  /*{ Authentication }*/
+
+  function signup(email, password, name) {
+    var user = auth.currentUser;
+    console.log(user);
+    return auth
+      .createUserWithEmailAndPassword(email, password)
+      .then(() => {
+        user = auth.currentUser;
+        console.log(user);
+      })
+      .then(() => {
+        user.updateProfile({
+          displayName: name,
+        });
+      });
+  }
+
+  function login(email, password) {
+    return auth.signInWithEmailAndPassword(email, password);
+  }
+
+  function logout() {
+    return auth.signOut();
+  }
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      setCurrentUser(user);
+    });
+    return unsubscribe;
+  }, []);
+
+  /*{ Cart }*/
 
   useEffect(() => {
     axios
@@ -34,8 +71,6 @@ export const DataProvider = ({ children }) => {
         console.error(error);
       });
   }, []);
-
-  // console.log(products);
 
   const addToCart = (id) => {
     const check = cart.every((item) => {
@@ -70,6 +105,10 @@ export const DataProvider = ({ children }) => {
     cart: [cart, setCart],
     addToCart: addToCart,
     loading: [isLoading, setIsLoading],
+    currentUser,
+    login,
+    signup,
+    logout,
   };
 
   return <DataContext.Provider value={value}>{children}</DataContext.Provider>;

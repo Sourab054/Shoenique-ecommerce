@@ -38,7 +38,7 @@ const SingleProduct = () => {
   if (isLoading || !product) {
     return (
       <div className="grid place-items-center min-h-screen w-full">
-        <Spinner name="three-bounce" />
+        <Spinner name="line-spin-fade-loader" />
       </div>
     );
   }
@@ -48,7 +48,7 @@ const SingleProduct = () => {
       {product.map((item) => (
         <div key={item.id}>
           <div className="md:pl-4">
-            <button className="bg-gray-100 text-black px-3 py-1 rounded-md shadow-sm">
+            <button className="bg-gray-100 text-black px-3 py-1 rounded-md shadow-sm transition-all duration-100 hover:bg-gray-200">
               <div
                 className="flex justify-between items-center"
                 onClick={() => history.goBack()}

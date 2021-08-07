@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 const Home = () => {
   return (
     <>
-      <section className="bg-tertiary pt-14 pb-4 md:py-12 lg:py-6 xl:py-20 text-secondary">
+      <section className="bg-tertiary pt-14 pb-4 md:py-12 lg:py-6 xl:py-24 xl:pt-36 text-secondary">
         <div className="p-4 flex flex-col font-body sm:px-8 md:grid md:grid-cols-3 lg:max-w-7xl lg:mx-auto">
           <motion.div
             initial={{ opacity: 0 }}
