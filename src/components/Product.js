@@ -3,6 +3,7 @@ import Fade from "react-reveal/Fade";
 import { DataContext } from "../DataContext";
 import { AiFillEye } from "react-icons/ai";
 import { FiShoppingCart } from "react-icons/fi";
+import { HiCheckCircle } from "react-icons/hi";
 import { Link } from "react-router-dom";
 
 const Product = ({ product }) => {
@@ -10,17 +11,23 @@ const Product = ({ product }) => {
   const value = useContext(DataContext);
   const addToCart = value.addToCart;
 
+  const handleCart = () => {
+    setIsAdding(true);
+    setTimeout(() => {
+      setIsAdding(false);
+    }, 2000);
+  };
   return (
     <>
       {product.media.imageUrl === null ? (
         ""
       ) : (
-        <div className="rounded-md shadow-lg border border-gray-200 mb-5">
-          <Fade bottom>
+        <Fade bottom>
+          <div className="rounded-md shadow-lg border border-gray-200 mb-5">
             <img
               src={product.media.thumbUrl}
               alt=""
-              className="border-b border-gray-400 rounded-t-md object-contain flex p-10 items-center"
+              className="border-b bg-white border-gray-400 rounded-t-md object-contain flex p-10 items-center"
             />
             <div className="flex justify-around p-3">
               <div>
@@ -47,19 +54,26 @@ const Product = ({ product }) => {
               <button
                 className={`${
                   isAdding
-                    ? "bg-secondary border border-secondary text-white rounded-md px-3 py-1 capitalize"
+                    ? "bg-accent border border-accent text-white rounded-md px-3 py-1 capitalize"
                     : "bg-secondary border border-tertiary text-white rounded-md px-3 py-1.5 capitalize "
                 }`}
                 onClick={() => addToCart(product.id)}
               >
-                <div className="flex items-center font-normal ipad:justify-center">
-                  <FiShoppingCart className="mr-1" />
+                <div
+                  onClick={handleCart}
+                  className="flex items-center font-normal ipad:justify-center"
+                >
+                  {isAdding ? (
+                    <HiCheckCircle size="22" className="mr-1" />
+                  ) : (
+                    <FiShoppingCart className="mr-1" />
+                  )}
                   {!isAdding ? " Add to cart" : "Added"}
                 </div>
               </button>
             </div>
-          </Fade>
-        </div>
+          </div>
+        </Fade>
       )}
     </>
   );

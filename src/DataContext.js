@@ -1,6 +1,8 @@
 import React, { useState, createContext, useEffect } from "react";
 import axios from "axios";
 import { auth } from "./firebase";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const DataContext = createContext();
 
@@ -8,6 +10,7 @@ export const DataProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState();
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [userLoading, setuserLoading] = useState(true);
   const [cart, setCart] = useState([]);
 
   const options = {
@@ -20,25 +23,37 @@ export const DataProvider = ({ children }) => {
     },
   };
 
+  const toastOptions = {
+    position: "top-center",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  };
+  toast.configure();
+  const notify = (type, message) => {
+    if (type === "success") {
+      toast.success(message, toastOptions);
+    } else if (type === "info") {
+      toast.info(message, toastOptions);
+    } else {
+      toast.danger(message, toastOptions);
+    }
+  };
+
   /*{ Authentication }*/
 
-  function signup(email, password, name) {
-    var user = auth.currentUser;
-    console.log(user);
-    return auth
-      .createUserWithEmailAndPassword(email, password)
-      .then(() => {
-        user = auth.currentUser;
-        console.log(user);
-      })
-      .then(() => {
-        user.updateProfile({
-          displayName: name,
-        });
-      });
+  async function signup(email, password, name) {
+    await auth.createUserWithEmailAndPassword(email, password);
+    return auth.currentUser.updateProfile({
+      displayName: name,
+    });
   }
 
   function login(email, password) {
+    console.log(currentUser);
     return auth.signInWithEmailAndPassword(email, password);
   }
 
@@ -48,6 +63,7 @@ export const DataProvider = ({ children }) => {
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
+      setuserLoading(false);
       setCurrentUser(user);
     });
     return unsubscribe;
@@ -70,7 +86,7 @@ export const DataProvider = ({ children }) => {
       .catch(function (error) {
         console.error(error);
       });
-  }, []);
+  }, [isLoading]);
 
   const addToCart = (id) => {
     const check = cart.every((item) => {
@@ -86,8 +102,9 @@ export const DataProvider = ({ children }) => {
         return item.id === id;
       });
       data.qty += 1;
+
       // setCart([...data, ...cart]);
-      // alert("Product has already been added to the cart");
+      notify("info", "Item already added");
     }
   };
 
@@ -105,10 +122,12 @@ export const DataProvider = ({ children }) => {
     cart: [cart, setCart],
     addToCart: addToCart,
     loading: [isLoading, setIsLoading],
+    userLoading,
     currentUser,
     login,
     signup,
     logout,
+    notify,
   };
 
   return <DataContext.Provider value={value}>{children}</DataContext.Provider>;

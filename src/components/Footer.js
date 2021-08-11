@@ -5,31 +5,31 @@ import { FiMail } from "react-icons/fi";
 const Footer = () => {
   return (
     <footer className="bg-secondary xl:px-28 sticky top-full text-primary ">
-      <div className="px-4 pt-4 text-fontWhite sm:px-8 md:pt-8 lg:mx-auto">
-        <div className="grid pb-6 font-body capitalize grid-cols-2 gap-5 md:grid-cols-4">
+      <div className="px-4 pt-4 text-fontWhite xs mb-1:px-8 lg:mx-auto">
+        <div className="grid justify-items-center font-body capitalize grid-cols-2 md:grid-cols-4">
           <div className="capitalize font-body">
             <h1 className="uppercase pt-4 pb-1 text-primary">Get to know us</h1>
-            <p className="text-sm">Our Company</p>
-            <p className="text-sm">Our Brand Family</p>
-            <p className="text-sm">careers</p>
-            <p className="text-sm">blog</p>
+            <p className="text-xs mb-1">Our Company</p>
+            <p className="text-xs mb-1">Our Brand Family</p>
+            <p className="text-xs mb-1">careers</p>
+            <p className="text-xs mb-1">blog</p>
           </div>
           <div className="capitalize font-body">
             <h1 className="uppercase pt-4 pb-1 text-primary">Informations</h1>
-            <p className="text-sm">contact</p>
-            <p className="text-sm">private policy</p>
-            <p className="text-sm">terms</p>
+            <p className="text-xs mb-1">contact</p>
+            <p className="text-xs mb-1">private policy</p>
+            <p className="text-xs mb-1">terms</p>
           </div>
           <div className="capitalize font-body">
             <h1 className="uppercase pt-4 pb-1 text-primary">customer care</h1>
-            <p className="text-sm">FAQs</p>
-            <p className="text-sm">return policy</p>
-            <p className="text-sm">COVID-19 response</p>
+            <p className="text-xs mb-1">FAQs</p>
+            <p className="text-xs mb-1">return policy</p>
+            <p className="text-xs mb-1">COVID-19 response</p>
           </div>
           <div className="capitalize font-body">
             <h1 className="uppercase pt-4 pb-1 text-primary">Gift cards</h1>
-            <p className="text-sm">buy a gift card</p>
-            <p className="text-sm">check balance</p>
+            <p className="text-xs mb-1">buy a gift card</p>
+            <p className="text-xs mb-1">check balance</p>
           </div>
         </div>
         <div className="flex justify-around border-b border-fontWhite py-6 md:px-36 lg:px-96">

@@ -10,33 +10,21 @@ const Login = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const value = useContext(DataContext);
+  const notify = value.notify;
   const user = value.currentUser;
   const login = value.login;
   const history = useHistory();
-
-  toast.configure();
-  const notify = () => {
-    console.log("toast");
-    toast.success("Login Successfull", {
-      position: "top-center",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-  };
 
   async function handleClick() {
     try {
       setError("");
       setLoading(true);
       await login(email, password);
-      notify();
+      notify("success", "Log In Successfull.");
       history.push("/");
     } catch {
       setError("Failed to log in");
+      notify("danger", "Failed to log in");
     }
     setLoading(false);
   }

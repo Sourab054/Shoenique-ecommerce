@@ -49,8 +49,8 @@ const Products = () => {
 
   if (isLoading) {
     return (
-      <div className="grid place-items-center h-96 w-full">
-        <Spinner name="three-bounce" />
+      <div className="grid place-items-center min-h-screen w-full">
+        <Spinner name="line-spin-fade-loader" color="black" />
       </div>
     );
   }

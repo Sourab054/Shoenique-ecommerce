@@ -11,23 +11,10 @@ const Register = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const value = useContext(DataContext);
+  const notify = value.notify;
   const user = value.currentUser;
   const signup = value.signup;
   const history = useHistory();
-
-  toast.configure();
-  const notify = () => {
-    console.log("toast");
-    toast.success("Sign up Successfull", {
-      position: "top-center",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-  };
 
   async function handleSubmit() {
     console.log("running");
@@ -36,10 +23,11 @@ const Register = () => {
       setLoading(true);
       await signup(email, password, name);
       console.log(user);
-      notify();
+      notify("success", "Sign up successful");
       history.push("/login");
     } catch {
       setError("Failed to create an account");
+      notify("danger", "Failed to create an account");
     }
     setLoading(false);
   }

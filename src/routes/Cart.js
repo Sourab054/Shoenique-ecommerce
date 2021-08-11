@@ -2,15 +2,39 @@ import React, { useContext, useState, useEffect } from "react";
 import { DataContext } from "../DataContext";
 import { Link } from "react-router-dom";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
-import Footer from "../components/Footer";
+import axios from "axios";
+import { loadStripe } from "@stripe/stripe-js";
+const stripePromise = loadStripe(
+  "pk_test_51JMZa9SDkRdnJi4LpFaDTn6mfsymwUiY2J7xHaEw4czEN4lyZTyPtWz7n9YMtQmCmHpyF0M2HEoOQGtaINF0OtGD00Td9qx0nv"
+);
 
 const Cart = () => {
   const value = useContext(DataContext);
   const [cart, setCart] = value.cart;
+  const currentUser = value.currentUser;
   const [total, setTotal] = useState(0);
   // console.log(cart);
 
+  // const createCheckoutSession = async () => {
+  //   const stripe = await stripePromise;
+  //   console.log(stripe);
+  //   //call to back-end to create a checkout session
+  //   const checkoutSession = await axios.post("/api/create-checkout-session", {
+  //     items: cart,
+  //     email: currentUser.email,
+  //   });
+
+  //   //Redirecting
+  //   const result = await stripe.redirectToCheckout({
+  //     sessionId: checkoutSession.data.id,
+  //   });
+  //   if (result.error) {
+  //     alert(result.error.message);
+  //   }
+  // };
+
   useEffect(() => {
+    // console.log(currentUser.email);
     const getTotal = () => {
       const res = cart.reduce((prev, item) => {
         return prev + item.retailPrice * item.qty;
@@ -49,10 +73,13 @@ const Cart = () => {
       {cart.length >= 1 ? (
         <div className="px-4 py-4 font-body pt-20 lg:px-36">
           <h1 className="font-head text-xl font-medium pl-4 pb-4 text-black ipad:text-3xl">
-            My Cart ({cart.length} items)
+            Your Cart ({cart.length} items)
           </h1>
           {cart.map((item) => (
-            <div className="grid grid-cols-2 gap-x-3 p-2 border bg-white border-gray-200 mb-5 sm:grid-cols-3 sm:gap-x-5 lg:gap-x-2">
+            <div
+              key={item.id}
+              className="grid grid-cols-2 shadow-sm gap-x-3 p-2 border bg-white border-gray-200 mb-5 sm:grid-cols-3 sm:gap-x-5 lg:gap-x-2"
+            >
               <div className="sm:row-span-2">
                 <img src={item.media.thumbUrl} alt="" />
               </div>
@@ -90,19 +117,16 @@ const Cart = () => {
           <div className="capitalize sm:flex justify-between">
             <h3 className="text-gray-600 text-center pb-2 sm:self-center">
               Grand Total :{" "}
-              <span className="text-black font-semibold">${total}</span>
+              <span className="text-black text-lg font-semibold">${total}</span>
             </h3>
-            <Link
-              className="bg-accent grid place-content-center text-base font-medium font-head text-white tracking-widest px-3 py-2 rounded-sm shadow-sm transition-all duration-300 border hover:bg-accentDark transform"
-              to="/payment"
-            >
+            <button className="bg-accent grid place-content-center text-base font-medium font-head text-white tracking-widest px-3 py-2 rounded-sm shadow-sm transition-all duration-300 border hover:bg-accentDark transform">
               {" "}
               Proceed to checkout{" "}
-            </Link>
+            </button>
           </div>
         </div>
       ) : (
-        <div className="px-4 py-4 font-body pt-20 lg:px-36">
+        <div className="px-4 py-4 font-body pt-20 mb-12 lg:px-36">
           <div className="flex flex-col items-center justify-center">
             <div>
               <img className="w-96 h-96" src="./img/EmptyCart.svg" alt="" />

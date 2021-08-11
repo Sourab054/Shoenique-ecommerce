@@ -8,7 +8,8 @@ const SingleProduct = () => {
   const history = useHistory();
   const value = useContext(DataContext);
   const addToCart = value.addToCart;
-  const [isLoading, setIsLoading] = value.loading;
+  const cart = value.cart;
+  const [isLoading, setIsLoading] = useState(true);
   const [product, setProduct] = useState([]);
   const { id } = useParams();
 
@@ -38,7 +39,7 @@ const SingleProduct = () => {
   if (isLoading || !product) {
     return (
       <div className="grid place-items-center min-h-screen w-full">
-        <Spinner name="line-spin-fade-loader" />
+        <Spinner name="line-spin-fade-loader" color="black" />
       </div>
     );
   }

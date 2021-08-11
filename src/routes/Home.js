@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import About from "./About";
 import Contact from "./Contact";
-// import "./App.scss";
 import { motion } from "framer-motion";
+import { DataContext } from "../DataContext";
 
 const Home = () => {
   return (
@@ -40,7 +40,6 @@ const Home = () => {
           </motion.div>
           <div className="bg-gray-50 grid place-content-center rounded-md shadow-md md:bg-transparent md:shadow-none">
             <motion.img
-              // variants={imageVariant}
               initial={{ y: "-100%" }}
               animate={{ y: 0 }}
               transition={{ duration: 1.5, type: "spring", stiffness: 100 }}
