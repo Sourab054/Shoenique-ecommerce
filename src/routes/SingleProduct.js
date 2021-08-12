@@ -8,7 +8,6 @@ const SingleProduct = () => {
   const history = useHistory();
   const value = useContext(DataContext);
   const addToCart = value.addToCart;
-  const cart = value.cart;
   const [isLoading, setIsLoading] = useState(true);
   const [product, setProduct] = useState([]);
   const { id } = useParams();
@@ -103,7 +102,7 @@ const SingleProduct = () => {
               <div className="pt-6 lg:pt-16">
                 <button
                   onClick={() => addToCart(item.id)}
-                  className="bg-accent w-full text-white rounded-sm px-3 py-2 capitalize ipad:text-lg"
+                  className="bg-accent w-full text-white rounded-sm transition-colors duration-150 hover:bg-accentDark px-3 py-2 capitalize ipad:text-lg"
                 >
                   Add to cart
                 </button>

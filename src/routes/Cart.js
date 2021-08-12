@@ -72,9 +72,17 @@ const Cart = () => {
     <>
       {cart.length >= 1 ? (
         <div className="px-4 py-4 font-body pt-20 lg:px-36">
-          <h1 className="font-head text-xl font-medium pl-4 pb-4 text-black ipad:text-3xl">
-            Your Cart ({cart.length} items)
-          </h1>
+          <div className="flex justify-between items-center">
+            <h1 className="font-head text-xl font-medium pl-4 pb-4 text-black ipad:text-3xl">
+              Your Cart ({cart.length} items)
+            </h1>
+            <h3
+              className="text-red-600 capitalize pb-3 cursor-pointer transition-all duration-150 hover:underline "
+              onClick={() => setCart([])}
+            >
+              remove all
+            </h3>
+          </div>
           {cart.map((item) => (
             <div
               key={item.id}

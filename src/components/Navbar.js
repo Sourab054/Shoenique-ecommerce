@@ -45,10 +45,10 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="flex items-center">
-          <button className="sm:flex sm:bg-gray-50 sm:justify-center sm:items-center sm:text-sm sm:font-semibold sm:font-head sm:text-black sm:tracking-wider sm:px-3 sm:py-1.5 sm:rounded-sm sm:shadow-sm transition-all duration-300 transform mr-4 hover:bg-gray-200">
+          <button className="sm:flex sm:bg-gray-50 sm:justify-center sm:items-center sm:text-sm sm:font-semibold sm:font-head sm:text-black sm:tracking-wider sm:px-3 sm:py-1.5 sm:rounded-sm sm:shadow-sm transition-all duration-300 transform mr-4 md:hover:bg-gray-200 ">
             <Link to="/cart">
               <div className="flex relative">
-                <FiShoppingCart size="21" className="mr-1 " />
+                <FiShoppingCart size="21" className="mr-1" />
                 <h1 className="hidden sm:block">Cart</h1>
                 {cart.length > 0 && (
                   <div className="bg-accent text-primary rounded-full py-0.5 px-1.5 text-xs absolute bottom-2 -right-2 sm:bottom-4 sm:-right-5">
@@ -60,7 +60,7 @@ const Navbar = () => {
           </button>
           <button
             onClick={handleLogin}
-            className="sm:bg-accent sm:text-sm sm:font-medium sm:font-head sm:text-primary sm:tracking-wider sm:px-3 sm:py-1.5 sm:rounded-sm sm:shadow-sm transition-all duration-300 transform hover:bg-accentDark"
+            className="sm:bg-accent sm:text-sm sm:font-medium sm:font-head sm:text-primary sm:tracking-wider sm:px-3 sm:py-1.5 sm:rounded-sm sm:shadow-sm transition-all duration-300 transform md:hover:bg-accentDark"
           >
             {currentUser ? (
               <FaSignOutAlt size="20" className="sm:hidden ml-1" />
@@ -97,7 +97,7 @@ const Navbar = () => {
             </li>
             <li className="flex items-center justify-start p-5 pl-20 space-x-1 w-full border-b border-gray-200 transition-all duration-300 hover:text-accent">
               <Avatar
-                className="mr-1"
+                className="mr-1 "
                 name={currentUser.displayName}
                 size="60"
                 round={true}

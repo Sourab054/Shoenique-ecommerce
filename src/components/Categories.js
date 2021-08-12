@@ -7,29 +7,36 @@ const Categories = ({ products, filterCategory }) => {
     ...new Set(products.map((item) => item.gender)),
   ];
   const [categories, setCategories] = useState(allCategories);
+  const [active, setActive] = useState();
+
+  const handleClick = (category, index) => {
+    // console.log("object");
+    setActive(index);
+    filterCategory(category);
+  };
 
   useEffect(() => {
-    // console.log(allCategories);
-  }, [products]);
+    // console.log(categories);
+  }, []);
 
   return (
-    <div className=" hidden sm:flex sm:flex-wrap sm:pt-16 sm:items-center sm:justify-center sm:text-gray-500">
-      <div className="border border-gray-200 rounded-md p-1 shadow-sm">
-        <label htmlFor="categories">Categories : </label>
-        <select
-          name="categories"
-          className="capitalize outline-none"
-          onChange={(e) => filterCategory(e.target.value)}
-        >
-          {categories.map((category, index) => {
-            return (
-              <option key={index} value={category}>
-                {" "}
-                {category}
-              </option>
-            );
-          })}
-        </select>
+    <div className="flex items-center justify-center">
+      <div className="flex overflow-x-scroll category items-center sm:justify-center">
+        {categories.map((category, index) => {
+          return (
+            <button
+              className={
+                index === active
+                  ? "capitalize px-5 py-1.5 shadow-sm rounded-md border bg-secondary text-primary mb-4 ml-2 hover:border-secondary transition-all duration-300"
+                  : "capitalize text-gray-500 px-5 py-1.5 shadow-sm rounded-md border bg-primary mb-4 ml-2 hover:border-secondary transition-all duration-300"
+              }
+              key={index}
+              onClick={() => handleClick(category, index)}
+            >
+              {category}{" "}
+            </button>
+          );
+        })}
       </div>
     </div>
   );

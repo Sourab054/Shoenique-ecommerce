@@ -58,16 +58,16 @@ const Products = () => {
   return (
     <>
       <section className="p-4 font-body lg:px-20">
-        <div className="sm:flex sm:justify-between sm:pb-4">
-          <div className="grid place-content-center">
+        <div className="sm:pb-4">
+          <div className="sm:w-2/3 mx-auto">
             <div className="border border-gray-200 shadow-sm p-1 rounded-md mt-20 mb-4 flex items-center justify-center">
               <input
                 type="text"
                 placeholder="Search for your favourite sneakers..."
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="outline-none text-sm overflow-ellipsis p-1 pl-1 sm:w-80 md:w-96"
+                className="outline-none bg-primary  overflow-ellipsis p-1 pl-2 md:pl-10 w-full"
               />
-              <FiSearch className="mr-2 text-tertiary" />
+              <FiSearch size="20" className="mr-6 text-tertiary" />
             </div>
           </div>
           <Categories products={products} filterCategory={filterCategory} />
