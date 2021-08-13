@@ -67,14 +67,18 @@ const SingleProduct = () => {
               />
             </div>
             <div className="place-self-center">
-              <p className="capitalize text-font font-medium">
-                {item.gender}'s Shoe
-              </p>
-              <h1 className="text-2xl font-head font-semibold heading mb-4 ipad:text-3xl">
-                {" "}
-                {item.shoe}
-              </h1>
-              <p className="text-lg font-semibold">${item.retailPrice}</p>
+              <div className="flex justify-between items-center md:flex-col md:justify-start md:items-start">
+                <div>
+                  <p className="capitalize text-font font-medium">
+                    {item.gender}'s Shoe
+                  </p>
+                  <h1 className="text-2xl font-head font-semibold heading mb-4 ipad:text-3xl">
+                    {" "}
+                    {item.shoe}
+                  </h1>
+                </div>
+                <p className="text-lg font-semibold">${item.retailPrice}</p>
+              </div>
               <p className="text-gray-600 pt-2 leading-4 text-xs ipad:text-sm">
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                 Quibusdam molestias sequi, sed necessitatibus labore ex qui amet

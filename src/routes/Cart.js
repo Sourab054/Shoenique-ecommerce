@@ -127,10 +127,10 @@ const Cart = () => {
               Grand Total :{" "}
               <span className="text-black text-lg font-semibold">${total}</span>
             </h3>
-            <button className="bg-accent grid place-content-center text-base font-medium font-head text-white tracking-widest px-3 py-2 rounded-sm shadow-sm transition-all duration-300 border hover:bg-accentDark transform">
+            <Link className="bg-accent grid place-content-center text-base font-medium font-head text-white tracking-widest px-3 py-2 rounded-sm shadow-sm transition-all duration-300 border hover:bg-accentDark transform">
               {" "}
               Proceed to checkout{" "}
-            </button>
+            </Link>
           </div>
         </div>
       ) : (
