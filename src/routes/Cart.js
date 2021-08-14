@@ -2,16 +2,10 @@ import React, { useContext, useState, useEffect } from "react";
 import { DataContext } from "../DataContext";
 import { Link } from "react-router-dom";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
-import axios from "axios";
-import { loadStripe } from "@stripe/stripe-js";
-const stripePromise = loadStripe(
-  "pk_test_51JMZa9SDkRdnJi4LpFaDTn6mfsymwUiY2J7xHaEw4czEN4lyZTyPtWz7n9YMtQmCmHpyF0M2HEoOQGtaINF0OtGD00Td9qx0nv"
-);
 
 const Cart = () => {
   const value = useContext(DataContext);
   const [cart, setCart] = value.cart;
-  const currentUser = value.currentUser;
   const [total, setTotal] = useState(0);
   // console.log(cart);
 

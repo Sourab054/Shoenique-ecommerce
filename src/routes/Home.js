@@ -1,9 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import About from "./About";
 import Contact from "./Contact";
 import { motion } from "framer-motion";
-import { DataContext } from "../DataContext";
 
 const Home = () => {
   return (
@@ -14,7 +13,7 @@ const Home = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.2 }}
-            className="order-1 md:space-y-6 md:order-none md:col-span-2 md:my-6 lg:space-y-10"
+            className="order-1 -mt-16 md:space-y-6 md:order-none md:col-span-2 md:my-8 md:mt-11 lg:mt-0 lg:space-y-10"
           >
             <h1 className="text-3xl heading-white font-head my-4 sm:text-4xl lg:text-5xl">
               We make your move a perfect move with our
@@ -38,14 +37,14 @@ const Home = () => {
               <Link to="/products">Explore</Link>
             </button>
           </motion.div>
-          <div className="bg-gray-50 grid place-content-center rounded-md shadow-md md:bg-transparent md:shadow-none">
+          <div className="bg-primary grid place-content-center rounded-md md:bg-transparent">
             <motion.img
               initial={{ y: "-100%" }}
               animate={{ y: 0 }}
               transition={{ duration: 1.5, type: "spring", stiffness: 100 }}
               src="/img/hero.png"
               alt=""
-              className="sm:w-96 sm:h-96 md:object-cover lg:w-full lg:h-full lg:-my-12"
+              className="sm:w-96 sm:h-96 md:object-cover lg:h-full lg:w-full"
             />
           </div>
         </div>

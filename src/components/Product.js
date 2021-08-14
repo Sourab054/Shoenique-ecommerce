@@ -25,7 +25,7 @@ const Product = ({ product }) => {
         <Fade bottom>
           <div className="rounded-md shadow-lg border border-gray-200 mb-5">
             <img
-              src={product.media.thumbUrl}
+              src={product.media.imageUrl}
               alt=""
               className="border-b bg-white border-gray-400 rounded-t-md object-contain flex p-10 items-center"
             />
@@ -54,8 +54,8 @@ const Product = ({ product }) => {
               <button
                 className={`${
                   isAdding
-                    ? "bg-accent border border-accent text-white rounded-md px-3 py-1 capitalize"
-                    : "bg-secondary border border-tertiary text-white rounded-md px-3 py-1.5 capitalize "
+                    ? "bg-accent border  border-accent text-white rounded-md px-6 py-1.5 capitalize"
+                    : "bg-secondary border border-secondary text-white rounded-md px-3 py-1.5 capitalize "
                 }`}
                 onClick={() => addToCart(product.id)}
               >
